@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Accessible enterprise dashboard built with semantic HTML5">
+    <title>Enterprise Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        header {
+            background: #172033;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin: 0 0 10px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 0;
+            margin: 10px 0 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover,
+        nav a:focus {
+            text-decoration: underline;
+        }
+
+        .layout {
+            display: flex;
+            min-height: 70vh;
+        }
+
+        aside {
+            width: 230px;
+            background: #ffffff;
+            padding: 20px;
+            border-right: 1px solid #ddd;
+        }
+
+        aside h2 {
+            font-size: 1.2rem;
+        }
+
+        aside ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        aside li {
+            margin-bottom: 12px;
+        }
+
+        aside a {
+            color: #172033;
+            text-decoration: none;
+        }
+
+        main {
+            flex: 1;
+            padding: 25px;
+        }
+
+        section {
+            margin-bottom: 30px;
+        }
+
+        article {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .card strong {
+            display: block;
+            font-size: 1.8rem;
+            margin-top: 8px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+        }
+
+        caption {
+            text-align: left;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border: 1px solid #ccc;
+            text-align: left;
+        }
+
+        th {
+            background: #e9edf2;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        fieldset {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        legend {
+            font-weight: bold;
+            padding: 0 8px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            font: inherit;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus,
+        button:focus,
+        a:focus {
+            outline: 3px solid #ffbf00;
+            outline-offset: 2px;
+        }
+
+        button {
+            padding: 10px 18px;
+            border: none;
+            border-radius: 4px;
+            background: #172033;
+            color: white;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #2c3c5c;
+        }
+
+        dialog {
+            border: none;
+            border-radius: 8px;
+            padding: 25px;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        dialog::backdrop {
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        footer {
+            background: #172033;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        @media (max-width: 700px) {
+            .layout {
+                flex-direction: column;
+            }
+
+            aside {
+                width: 100%;
+                border-right: none;
+                border-bottom: 1px solid #ddd;
+            }
+
+            nav ul {
+                flex-direction: column;
+            }
+
+            table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Accessible Header -->
+    <header>
+        <h1>Enterprise Dashboard</h1>
+
+        <!-- Semantic Navigation -->
+        <nav aria-label="Primary navigation">
+            <ul>
+                <li><a href="#dashboard">Dashboard</a></li>
+                <li><a href="#reports">Reports</a></li>
+                <li><a href="#users">Users</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout">
+
+        <!-- Semantic Sidebar -->
+        <aside aria-label="Dashboard sidebar">
+            <h2>Quick Links</h2>
+
+            <nav aria-label="Sidebar navigation">
+                <ul>
+                    <li><a href="#dashboard">Overview</a></li>
+                    <li><a href="#analytics">Analytics</a></li>
+                    <li><a href="#reports">Reports</a></li>
+                    <li><a href="#users">User Management</a></li>
+                    <li><a href="#contact">Support</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main id="dashboard">
+
+            <!-- Dashboard Section -->
+            <section aria-labelledby="overview-heading">
+                <h2 id="overview-heading">Dashboard Overview</h2>
+
+                <div class="cards">
+
+                    <article class="card">
+                        <h3>Total Users</h3>
+                        <strong>1,250</strong>
+                        <p>Active registered users.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Monthly Revenue</h3>
+                        <strong>$45,800</strong>
+                        <p>Revenue generated this month.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Open Tickets</h3>
+                        <strong>28</strong>
+                        <p>Support tickets awaiting action.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>System Status</h3>
+                        <strong>Healthy</strong>
+                        <p>All major services are operational.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Analytics Section -->
+            <section id="analytics" aria-labelledby="analytics-heading">
+                <h2 id="analytics-heading">Analytics</h2>
+
+                <article>
+                    <h3>Performance Summary</h3>
+                    <p>
+                        The dashboard provides an overview of business
+                        performance, user activity, and system health.
+                    </p>
+                </article>
+            </section>
+
+            <!-- Data Table -->
+            <section id="reports" aria-labelledby="reports-heading">
+                <h2 id="reports-heading">Reports</h2>
+
+                <article>
+                    <h3>Monthly Performance Report</h3>
+
+                    <table>
+                        <caption>Department performance for the current month</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Department</th>
+                                <th scope="col">Employees</th>
+                                <th scope="col">Projects</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Development</th>
+                                <td>35</td>
+                                <td>12</td>
+                                <td>On Track</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Marketing</th>
+                                <td>18</td>
+                                <td>7</td>
+                                <td>On Track</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Sales</th>
+                                <td>25</td>
+                                <td>15</td>
+                                <td>Needs Review</td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">Support</th>
+                                <td>20</td>
+                                <td>9</td>
+                                <td>On Track</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </article>
+            </section>
+
+            <!-- Users Section -->
+            <section id="users" aria-labelledby="users-heading">
+                <h2 id="users-heading">User Management</h2>
+
+                <article>
+                    <h3>Add a New User</h3>
+
+                    <form action="#" method="post">
+
+                        <fieldset>
+                            <legend>Personal Information</legend>
+
+                            <div class="form-group">
+                                <label for="full-name">Full Name</label>
+                                <input
+                                    type="text"
+                                    id="full-name"
+                                    name="full_name"
+                                    autocomplete="name"
+                                    minlength="2"
+                                    maxlength="50"
+                                    required
+                                    aria-required="true"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    autocomplete="email"
+                                    required
+                                    aria-required="true"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    autocomplete="tel"
+                                    pattern="[0-9]{10}"
+                                    aria-describedby="phone-help"
+                                >
+
+                                <small id="phone-help">
+                                    Enter a 10-digit phone number.
+                                </small>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Account Information</legend>
+
+                            <div class="form-group">
+                                <label for="role">User Role</label>
+
+                                <select
+                                    id="role"
+                                    name="role"
+                                    required
+                                    aria-required="true"
+                                >
+                                    <option value="">Select a role</option>
+                                    <option value="admin">Administrator</option>
+                                    <option value="manager">Manager</option>
+                                    <option value="employee">Employee</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password</label>
+
+                                <input
+                                    type="password"
+                                    id="password"
+                                    name="password"
+                                    minlength="8"
+                                    maxlength="50"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="password-help"
+                                >
+
+                                <small id="password-help">
+                                    Password must contain at least 8 characters.
+                                </small>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Additional Notes</label>
+
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    rows="5"
+                                    maxlength="500"
+                                    aria-label="Additional notes"
+                                ></textarea>
+                            </div>
+                        </fieldset>
+
+                        <button type="submit">
+                            Create User
+                        </button>
+
+                    </form>
+                </article>
+            </section>
+
+            <!-- Modal Dialog Section -->
+            <section aria-labelledby="dialog-heading">
+                <h2 id="dialog-heading">System Information</h2>
+
+                <article>
+                    <h3>View Information</h3>
+
+                    <button
+                        type="button"
+                        id="open-dialog"
+                        aria-haspopup="dialog"
+                        aria-controls="info-dialog"
+                    >
+                        Open Information Dialog
+                    </button>
+                </article>
+
+                <dialog
+                    id="info-dialog"
+                    aria-labelledby="dialog-title"
+                    aria-describedby="dialog-description"
+                >
+                    <h2 id="dialog-title">Dashboard Information</h2>
+
+                    <p id="dialog-description">
+                        This dialog provides additional information about
+                        the enterprise dashboard.
+                    </p>
+
+                    <button type="button" id="close-dialog">
+                        Close Dialog
+                    </button>
+                </dialog>
+            </section>
+
+            <!-- Contact Form -->
+            <section id="contact" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact Support</h2>
+
+                <article>
+                    <form action="#" method="post">
+
+                        <fieldset>
+                            <legend>Support Request</legend>
+
+                            <div class="form-group">
+                                <label for="support-email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    type="email"
+                                    id="support-email"
+                                    name="support_email"
+                                    required
+                                    aria-required="true"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="support-message">
+                                    Support Message
+                                </label>
+
+                                <textarea
+                                    id="support-message"
+                                    name="support_message"
+                                    rows="6"
+                                    minlength="10"
+                                    maxlength="1000"
+                                    required
+                                    aria-required="true"
+                                ></textarea>
+                            </div>
+                        </fieldset>
+
+                        <button type="submit">
+                            Send Support Request
+                        </button>
+
+                    </form>
+                </article>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Semantic Footer -->
+    <footer>
+        <p>
+            &copy; 2026 Enterprise Dashboard.
+            All rights reserved.
+        </p>
+
+        <p>
+            <a href="#dashboard" style="color: white;">
+                Back to Dashboard
+            </a>
+        </p>
+    </footer>
+
+    <!-- Dialog JavaScript -->
+    <script>
+        const dialog = document.getElementById("info-dialog");
+        const openButton = document.getElementById("open-dialog");
+        const closeButton = document.getElementById("close-dialog");
+
+        openButton.addEventListener("click", function () {
+            dialog.showModal();
+        });
+
+        closeButton.addEventListener("click", function () {
+            dialog.close();
+        });
+    </script>
+
+</body>
+</html>
